@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Redirect</title>
+</head>
+<body>
+
+<script>
+(function () {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    // iPhone, iPad, iPod
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        window.location.href = "https://apps.apple.com/us/app/avis-budget-egypt/id6747757208";
+    }
+    // Android
+    else if (/android/i.test(userAgent)) {
+        window.location.href = "https://play.google.com/store/apps/details?id=com.ezzelarab.ABG";
+    }
+    // Other devices
+    else {
+        window.location.href = "https://avis.eg";
+    }
+})();
+</script>
+
+</body>
+</html>
