@@ -13,11 +13,13 @@
 
     // iPhone, iPad, iPod
     if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        window.location.href = "https://apps.apple.com/us/app/avis-budget-egypt/id6747757208";
+        //window.location.href = "https://apps.apple.com/us/app/avis-budget-egypt/id6747757208";
+        window.open("https://apps.apple.com/us/app/avis-budget-egypt/id6747757208",'_blank');
     }
     // Android
     else if (/android/i.test(userAgent)) {
-        window.location.href = "https://play.google.com/store/apps/details?id=com.ezzelarab.ABG";
+       // window.location.href = "https://play.google.com/store/apps/details?id=com.ezzelarab.ABG";
+        window.open("https://play.google.com/store/apps/details?id=com.ezzelarab.ABG",'_blank')
     }
     // Other devices
     else {
