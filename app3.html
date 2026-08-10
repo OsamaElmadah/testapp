@@ -7,29 +7,43 @@
 <body>
 
 <script>
-const APP_STORE_URL =
-    "https://apps.apple.com/us/app/avis-budget-egypt/id6747757208";
+(function () {
 
-const PLAY_STORE_URL =
-    "https://play.google.com/store/apps/details?id=com.ezzelarab.ABG";
+    const IOS_URL =
+        "https://apps.apple.com/us/app/avis-budget-egypt/id6747757208";
 
-const ua = navigator.userAgent;
+    const ANDROID_URL =
+        "https://play.google.com/store/apps/details?id=com.ezzelarab.ABG";
 
-if (/Android/i.test(ua)) {
-    location.replace(PLAY_STORE_URL);
-}
-else if (/iPhone|iPad|iPod/i.test(ua)) {
-    location.replace(APP_STORE_URL);
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
 
-    // Fallback attempts
-    setTimeout(() => {
-        location.href = APP_STORE_URL;
-    }, 500);
+    if (/Android/i.test(ua)) {
 
-    setTimeout(() => {
-        window.location = APP_STORE_URL;
-    }, 1500);
-}
+        window.location.replace(ANDROID_URL);
+
+        setTimeout(function () {
+            window.location.href = ANDROID_URL;
+        }, 500);
+
+    } else if (/iPhone|iPad|iPod/i.test(ua)) {
+
+        window.location.replace(IOS_URL);
+
+        setTimeout(function () {
+            window.location.href = IOS_URL;
+        }, 500);
+
+        setTimeout(function () {
+            document.location = IOS_URL;
+        }, 1500);
+
+    } else {
+
+        window.location.href = IOS_URL;
+
+    }
+
+})();
 </script>
 
 </body>
