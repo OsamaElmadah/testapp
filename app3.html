@@ -22,8 +22,17 @@
     } 
     else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
       // iOS device
-      window.location.href = appStoreLink;
+     // window.location.href = appStoreLink;
       //window.open(appStoreLink, '_blank');
+      
+    const newTab = window.open('', '_blank');
+
+    fetch('/api/getUrl')
+        .then(response => response.text())
+        .then(url => {
+            newTab.location.href = appStoreLink;
+        });
+
     } 
     else {
       // Not a mobile device
