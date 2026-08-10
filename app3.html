@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Redirect</title>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
 </head>
 <body>
+  <p>Redirecting to the store...</p>
 
-<script>
-(function () {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  <script>
+    // App store links - replace with your actual URLs
+    var appStoreLink  = "https://apps.apple.com/us/app/avis-budget-egypt/id6747757208";
+    var playStoreLink = "https://play.google.com/store/apps/details?id=com.ezzelarab.ABG";
 
-    // iPhone, iPad, iPod
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-        //window.location.href = "https://apps.apple.com/us/app/avis-budget-egypt/id6747757208";
-        window.open("https://apps.apple.com/us/app/avis-budget-egypt/id6747757208",'_blank');
-    }
-    // Android
-    else if (/android/i.test(userAgent)) {
-       // window.location.href = "https://play.google.com/store/apps/details?id=com.ezzelarab.ABG";
-        window.open("https://play.google.com/store/apps/details?id=com.ezzelarab.ABG",'_blank')
-    }
-    // Other devices
+    // Detect the mobile OS
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/android/i.test(userAgent)) {
+      // Android device
+      window.location.href = playStoreLink;
+    } 
+    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      // iOS device
+      window.location.href = appStoreLink;
+    } 
     else {
-        window.location.href = "https://avis.eg";
+      // Not a mobile device
+      document.body.innerHTML = "<p>Please open this page on your mobile device.</p>";
     }
-})();
-</script>
-
+  </script>
 </body>
 </html>
