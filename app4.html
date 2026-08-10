@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <p>Redirecting to the store...</p>
+
+  <script>
+    // App store links - replace with your actual URLs
+    var appStoreLink  = "https://apps.apple.com/us/app/avis-budget-egypt/id6747757208";
+    var playStoreLink = "https://play.google.com/store/apps/details?id=com.ezzelarab.ABG";
+
+    // Detect the mobile OS
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/android/i.test(userAgent)) {
+      // Android device
+      window.location.href = playStoreLink;
+    } 
+    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+      // iOS device
+      window.location.href = appStoreLink;
+    } 
+    else {
+      // Not a mobile device
+      document.body.innerHTML = "<p>Please open this page on your mobile device.</p>";
+    }
+  </script>
+</body>
+</html>
