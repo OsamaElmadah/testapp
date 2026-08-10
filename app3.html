@@ -25,13 +25,7 @@
      // window.location.href = appStoreLink;
       //window.open(appStoreLink, '_blank');
       
-    const newTab = window.open('', '_blank');
-
-    fetch('/api/getUrl')
-        .then(response => response.text())
-        .then(url => {
-            newTab.location.href = appStoreLink;
-        });
+ 
 
     } 
     else {
