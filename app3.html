@@ -17,13 +17,13 @@
 
     if (/android/i.test(userAgent)) {
       // Android device
-     // window.location.href = playStoreLink;
-      window.open(playStoreLink, '_blank');
+      window.location.href = playStoreLink;
+      //window.open(playStoreLink, '_blank');
     } 
     else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
       // iOS device
-     // window.location.href = appStoreLink;
-      window.open(appStoreLink, '_blank');
+      window.location.href = appStoreLink;
+      //window.open(appStoreLink, '_blank');
     } 
     else {
       // Not a mobile device
