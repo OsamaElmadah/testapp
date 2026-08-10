@@ -1,28 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Redirecting...</title>
+    <meta charset="utf-8">
+    <title>Download AVIS Budget Egypt App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 25px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
-  <p>Redirecting to the store...</p>
-<button onclick="window.open('https://apps.apple.com/us/app/avis-budget-egypt/id6747757208', '_blank')">
-    click here to open the store
-</button>
-<script>
-const ua = navigator.userAgent;
 
-if (/Android/i.test(ua)) {
-    location.replace(
-        "https://play.google.com/store/apps/details?id=com.ezzelarab.ABG"
-    );
-}
-else if (/iPhone|iPad|iPod/i.test(ua)) {
-    location.replace(
-        "https://apps.apple.com/us/app/avis-budget-egypt/id6747757208"
-    );
-}
-</script>
+    <h2>AVIS Budget Egypt</h2>
+    <p class="message" id="message">
+        Redirecting to the app store...
+    </p>
+
+    #
+        Download App
+    </a>
+
+    <script>
+        const APP_STORE_URL =
+            "https://apps.apple.com/us/app/avis-budget-egypt/id6747757208";
+
+        const PLAY_STORE_URL =
+            "https://play.google.com/store/apps/details?id=com.ezzelarab.ABG";
+
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+        let targetUrl = "";
+
+        if (/Android/i.test(ua)) {
+            targetUrl = PLAY_STORE_URL;
+        }
+        else if (/iPhone|iPad|iPod/i.test(ua)) {
+            targetUrl = APP_STORE_URL;
+        }
+        else {
+            document.getElementById("message").innerHTML =
+                "Please open this page on your mobile device.";
+            document.getElementById("downloadBtn").style.display = "none";
+        }
+
+        if (targetUrl) {
+
+            document.getElementById("downloadBtn").href = targetUrl;
+
+            const isInstagram =
+                ua.indexOf("Instagram") > -1;
+
+            if (isInstagram) {
+                document.getElementById("message").innerHTML =
+                    "Instagram browser detected. If automatic redirection doesn't work, tap the button below or choose 'Open in Safari' from Instagram's menu.";
+            }
+
+            setTimeout(function () {
+                window.location.replace(targetUrl);
+            }, 1000);
+        }
+    </script>
 
 </body>
 </html>
