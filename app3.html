@@ -7,34 +7,22 @@
 <body>
   <p>Redirecting to the store...</p>
 <button onclick="window.open('https://apps.apple.com/us/app/avis-budget-egypt/id6747757208', '_blank')">
-    Open
+    click here to open the store
 </button>
+<script>
+const ua = navigator.userAgent;
 
-  <script>
-    // App store links - replace with your actual URLs
-    var appStoreLink  = "https://apps.apple.com/us/app/avis-budget-egypt/id6747757208";
-    var playStoreLink = "https://play.google.com/store/apps/details?id=com.ezzelarab.ABG";
+if (/Android/i.test(ua)) {
+    location.replace(
+        "https://play.google.com/store/apps/details?id=com.ezzelarab.ABG"
+    );
+}
+else if (/iPhone|iPad|iPod/i.test(ua)) {
+    location.replace(
+        "https://apps.apple.com/us/app/avis-budget-egypt/id6747757208"
+    );
+}
+</script>
 
-    // Detect the mobile OS
-    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-
-    if (/android/i.test(userAgent)) {
-      // Android device
-      window.location.href = playStoreLink;
-      //window.open(playStoreLink, '_blank');
-    } 
-    else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      // iOS device
-     // window.location.href = appStoreLink;
-      window.open(appStoreLink, '_blank','noopener,noreferrer');
-      
- 
-
-    } 
-    else {
-      // Not a mobile device
-      document.body.innerHTML = "<p>Please open this page on your mobile device.</p>";
-    }
-  </script>
 </body>
 </html>
