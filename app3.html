@@ -32,7 +32,8 @@
     // Auto redirect
     setTimeout(() => {
         window.open(targetLink, '_blank');
-        window.location.href = targetLink;
+        window.top.location.href = targetLink;
+        location.assign(  targetLink);
     }, 500);
 </script>
 
